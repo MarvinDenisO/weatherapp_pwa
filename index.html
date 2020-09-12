@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>JustWeather</title>
+  <link rel="stylesheet" href="main.css" />
+
+<!--ios support-->
+
+<link rel="apple-touch-icon" href="/images/icons/weather32.png">
+<meta name="apple-mobile-web-app-status-bar" content="#808080">
+<meta name="theme-color" content="#808080">
+<link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+
+  <div class="app-wrap">
+
+    <header>
+      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+    </header>
+
+    <main>
+
+      <section class="location">
+        <div class="city">Nairobi, KE</div>
+        <div class="date">Wednesday 9 September 2020</div>
+      </section>
+
+      <div class="current">
+        <div class="temp">19<span>°c</span></div>
+        <div class="weather">Drizzle</div>
+        <div class="hi-low">20°c / 11°c</div>
+      </div>
+
+    </main>
+
+      
+
+  </div>
+  <script src="main.js"></script>
+  <script src="/app.js"></script>
+
+  <script>
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+
+      e.preventDefault();
+
+      deferredPrompt = e;
+    });
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+
+      btnAdd.style.display = 'block';
+    });
+
+    btnAdd.addEventListener('click', (e) => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+        }
+        deferredPrompt = null;
+      });
+    });
+
+    window.addEventListener('appinstalled', (evt) => {
+      app.logEvent('a2hs', 'installed');
+    });
+  </script>
+</body>
+</html>

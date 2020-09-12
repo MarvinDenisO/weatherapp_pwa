@@ -1,0 +1,40 @@
+{
+    "name": "JustWeather",
+    "short_name": "JustWeather",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#808080",
+    "theme_color": "#808080",
+    "orientation":"portrait-primary",
+    "icons": [
+        {
+            "src":"/images/icons/weather32.png",
+            "type":"image/png",
+            "sizes":"32x32"
+        },
+
+        {
+            "src":"/images/icons/weather64.png",
+            "type":"image/png",
+            "sizes":"64x64"
+        },
+
+        {
+            "src": "/images/icons/weather128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+
+        {
+            "src":"/images/icons/weather256.png",
+            "type":"image/png",
+            "sizes":"256x256"
+        },
+
+        {
+            "src":"/images/icons/weather512.png",
+            "type":"image/png",
+            "sizes":"512x512"
+        }
+    ]
+}
